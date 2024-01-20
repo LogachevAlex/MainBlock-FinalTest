@@ -15,12 +15,12 @@ string[] CreateArray(int length) //Создание массива. В каче�
 
 void PrintArray (string[] array) //Печать массива
 {   
-    Console.Write("Ваш массив: [");
+    Console.Write("[");
     for (int i = 0; i < (array.Length - 1); i++)
     {
         Console.Write($"{array[i]}, ");
     }
-    Console.WriteLine($"{array[array.Length-1]}]");
+    Console.Write($"{array[array.Length-1]}]");
 }
 
 int CountElementsUnder3Chars (string[] array) //Подсчет элементов в массиве длиной меньше 3
@@ -54,5 +54,6 @@ string[] userArray = CreateArray(userLength);
 PrintArray(userArray);
 int arrayCount = CountElementsUnder3Chars(userArray);
 string[] duplicatedArray = DuplicateArray(userArray, arrayCount);
+Console.Write(" -> ");
 PrintArray(duplicatedArray);
 
