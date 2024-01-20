@@ -15,6 +15,12 @@ string[] CreateArray(int length) //Создание массива. В каче�
 
 void PrintArray (string[] array) //Печать массива
 {   
+    if (array.Length == 0)
+    {
+        Console.WriteLine("[]");
+        return;
+    }
+    
     Console.Write("[");
     for (int i = 0; i < (array.Length - 1); i++)
     {
@@ -49,7 +55,13 @@ string[] DuplicateArray(string[] array, int length) //Создание втор�
 }
 
 Console.WriteLine("Давайте создадим массив, введите желаемую длину массива: ");
-int userLength = int.Parse(Console.ReadLine()!);
+// int userLength = int.Parse(Console.ReadLine()!);
+int userLength = 0;
+while (!int.TryParse(Console.ReadLine(), out userLength) || userLength < 1)
+{
+    Console.WriteLine("Некорректный ввод. Пожалуйста, введите число больше 0: ");
+}
+
 string[] userArray = CreateArray(userLength);
 PrintArray(userArray);
 int arrayCount = CountElementsUnder3Chars(userArray);
